@@ -13,6 +13,7 @@
 		11534A531C940B8E001F142D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11534A511C940B8E001F142D /* LaunchScreen.storyboard */; };
 		11534A5E1C940B8E001F142D /* WhoIsWhoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11534A5D1C940B8E001F142D /* WhoIsWhoTests.swift */; };
 		11534A691C940B8E001F142D /* WhoIsWhoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11534A681C940B8E001F142D /* WhoIsWhoUITests.swift */; };
+		115DF31D1C9E54C00055CD57 /* BambooApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115DF31C1C9E54C00055CD57 /* BambooApi.swift */; };
 		11D78A891C94156F0088F837 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D78A881C94156F0088F837 /* WelcomeViewController.swift */; };
 		11D78A8B1C9415D80088F837 /* PhotoAndNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D78A8A1C9415D80088F837 /* PhotoAndNameViewController.swift */; };
 		11D78A8D1C94184C0088F837 /* APICallController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D78A8C1C94184C0088F837 /* APICallController.swift */; };
@@ -48,6 +49,7 @@
 		11534A641C940B8E001F142D /* WhoIsWhoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WhoIsWhoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		11534A681C940B8E001F142D /* WhoIsWhoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhoIsWhoUITests.swift; sourceTree = "<group>"; };
 		11534A6A1C940B8E001F142D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		115DF31C1C9E54C00055CD57 /* BambooApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BambooApi.swift; sourceTree = "<group>"; };
 		11D78A881C94156F0088F837 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		11D78A8A1C9415D80088F837 /* PhotoAndNameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoAndNameViewController.swift; sourceTree = "<group>"; };
 		11D78A8C1C94184C0088F837 /* APICallController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APICallController.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 			children = (
 				11534A481C940B8E001F142D /* AppDelegate.swift */,
 				11D78A8C1C94184C0088F837 /* APICallController.swift */,
+				115DF31C1C9E54C00055CD57 /* BambooApi.swift */,
 				11D78A881C94156F0088F837 /* WelcomeViewController.swift */,
 				11D78A8A1C9415D80088F837 /* PhotoAndNameViewController.swift */,
 				11534A4C1C940B8E001F142D /* Main.storyboard */,
@@ -263,6 +266,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				11D78A8D1C94184C0088F837 /* APICallController.swift in Sources */,
+				115DF31D1C9E54C00055CD57 /* BambooApi.swift in Sources */,
 				11D78A8B1C9415D80088F837 /* PhotoAndNameViewController.swift in Sources */,
 				11D78A891C94156F0088F837 /* WelcomeViewController.swift in Sources */,
 				11534A491C940B8E001F142D /* AppDelegate.swift in Sources */,
