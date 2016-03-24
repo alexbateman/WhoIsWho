@@ -8,35 +8,46 @@
 
 import Foundation
 
-class BambooCall {
+class APICallController {
     
-    private static let API_KEY = "20c02ea9cde0c30f0d15543b80fd99dcaadc8765"
-    static let baseURL = "https://api.bamboohr.com/api/gateway.php/abateman/v1/employees/directory"
-    
-    static func searchURLByCity(city: String) -> NSURL {
-        let escapedCityString = city.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet())
+    func sendRequest() {
+        /* Configure session, choose between:
+         * defaultSessionConfiguration
+         * ephemeralSessionConfiguration
+         * backgroundSessionConfigurationWithIdentifier:
+         And set session-wide properties, such as: HTTPAdditionalHeaders,
+         HTTPCookieAcceptPolicy, requestCachePolicy or timeoutIntervalForRequest.
+         */
+        let sessionConfig = NSURLSessionConfiguration.defaultSessionConfiguration()
         
-        return NSURL(string: baseURL + "?q=\(escapedCityString!)" + "&appid=\(API_KEY)")!
-    }
-    
-    static func urlForIcon(iconString: String) -> NSURL {
-        return NSURL(string: "http://openweathermap.org/img/w/\(iconString).png")!
-    }
-    
-    static func dataAtURL(url: NSURL, completion:(resultData: NSData?) -> Void) {
-        let session = NSURLSession.sharedSession()
+        /* Create session, and optionally set a NSURLSessionDelegate. */
+        let session = NSURLSession(configuration: sessionConfig, delegate: nil, delegateQueue: nil)
         
-        let dataTask = session.dataTaskWithURL(url) { (data, _, error) -> Void in
-            
-            guard let data = data  else {
-                print(error?.localizedDescription)
-                completion(resultData: nil)
-                return
+        /* Create the Request:
+         BambooHR JSON (GET https://api.bamboohr.com/api/gateway.php/abateman/v1/employees/directory)
+         */
+        
+        guard var URL = NSURL(string: "https://api.bamboohr.com/api/gateway.php/abateman/v1/employees/directory") else {return}
+        let request = NSMutableURLRequest(URL: URL)
+        request.HTTPMethod = "GET"
+        
+        // Headers
+        
+        request.addValue("Basic MjBjMDJlYTljZGUwYzMwZjBkMTU1NDNiODBmZDk5ZGNhYWRjODc2NToqKioqKiBIaWRkZW4gY3JlZGVudGlhbHMgKioqKio=", forHTTPHeaderField: "Authorization")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        
+        /* Start a new Task */
+        let task = session.dataTaskWithRequest(request, completionHandler: { (data: NSData?, response: NSURLResponse?, error: NSError?) -> Void in
+            if (error == nil) {
+                // Success
+                let statusCode = (response as! NSHTTPURLResponse).statusCode
+                print("URL Session Task Succeeded: HTTP \(statusCode)")
             }
-            
-            completion(resultData: data)
-        }
-        
-        dataTask.resume()
+            else {
+                // Failure
+                print("URL Session Task Failed: %@", error!.localizedDescription);
+            }
+        })
+        task.resume()
     }
 }
