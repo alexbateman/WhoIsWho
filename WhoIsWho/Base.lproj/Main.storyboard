@@ -74,16 +74,20 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="fHJ-vC-CqJ">
                                 <rect key="frame" x="133" y="20" width="335" height="309"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IK3-7b-acc">
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0vb-Bn-FVO">
                                         <rect key="frame" x="0.0" y="0.0" width="335" height="309"/>
-                                    </imageView>
+                                        <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="employeeImageButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kOm-ni-3jD"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="073-fl-15j">
-                                <rect key="frame" x="133" y="337" width="335" height="200"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="073-fl-15j">
+                                <rect key="frame" x="133" y="337" width="335" height="28"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xCS-KM-LNL">
-                                        <rect key="frame" x="0.0" y="0.0" width="335" height="200"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="335" height="28"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -97,12 +101,14 @@
                             <constraint firstAttribute="trailingMargin" secondItem="073-fl-15j" secondAttribute="trailing" constant="112" id="7Dt-q7-gZR"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="fHJ-vC-CqJ" secondAttribute="bottom" constant="271" id="Ber-Q8-g1g"/>
                             <constraint firstItem="073-fl-15j" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="113" id="aKF-Zp-VVZ"/>
-                            <constraint firstItem="073-fl-15j" firstAttribute="top" secondItem="IK3-7b-acc" secondAttribute="bottom" constant="8" id="czo-kq-0YW"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="073-fl-15j" secondAttribute="bottom" constant="63" id="oRZ-6l-X6s"/>
                             <constraint firstItem="fHJ-vC-CqJ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="113" id="uW9-N7-Jmw"/>
                             <constraint firstAttribute="trailingMargin" secondItem="fHJ-vC-CqJ" secondAttribute="trailing" constant="112" id="w0o-Is-uHd"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="EmployeeName" destination="xCS-KM-LNL" id="JyJ-sp-rvO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

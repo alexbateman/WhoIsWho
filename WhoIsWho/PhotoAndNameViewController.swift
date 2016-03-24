@@ -9,7 +9,14 @@
 import UIKit
 
 class PhotoAndNameViewController: UIViewController {
+    
 
+    @IBAction func employeeImageButtonClicked(sender: AnyObject) {
+        
+    }
+    
+    @IBOutlet weak var EmployeeName: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

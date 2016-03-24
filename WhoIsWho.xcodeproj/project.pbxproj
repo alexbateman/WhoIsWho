@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1115D1351CA3796800A07A75 /* Employee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1115D1341CA3796800A07A75 /* Employee.swift */; };
 		1115D1371CA3805600A07A75 /* SWXMLHash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1115D1361CA3805600A07A75 /* SWXMLHash.swift */; };
+		1115D1391CA38DD200A07A75 /* EmployeeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1115D1381CA38DD200A07A75 /* EmployeeController.swift */; };
 		11534A491C940B8E001F142D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11534A481C940B8E001F142D /* AppDelegate.swift */; };
 		11534A4E1C940B8E001F142D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11534A4C1C940B8E001F142D /* Main.storyboard */; };
 		11534A501C940B8E001F142D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11534A4F1C940B8E001F142D /* Assets.xcassets */; };
@@ -40,6 +41,7 @@
 /* Begin PBXFileReference section */
 		1115D1341CA3796800A07A75 /* Employee.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Employee.swift; sourceTree = "<group>"; };
 		1115D1361CA3805600A07A75 /* SWXMLHash.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SWXMLHash.swift; path = ../SWXMLHash.swift; sourceTree = "<group>"; };
+		1115D1381CA38DD200A07A75 /* EmployeeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmployeeController.swift; sourceTree = "<group>"; };
 		11534A451C940B8E001F142D /* WhoIsWho.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhoIsWho.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11534A481C940B8E001F142D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		11534A4D1C940B8E001F142D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 				11534A481C940B8E001F142D /* AppDelegate.swift */,
 				11D78A8C1C94184C0088F837 /* APICallController.swift */,
 				1115D1341CA3796800A07A75 /* Employee.swift */,
+				1115D1381CA38DD200A07A75 /* EmployeeController.swift */,
 				11D78A881C94156F0088F837 /* WelcomeViewController.swift */,
 				11D78A8A1C9415D80088F837 /* PhotoAndNameViewController.swift */,
 				11534A4C1C940B8E001F142D /* Main.storyboard */,
@@ -269,6 +272,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				11D78A8D1C94184C0088F837 /* APICallController.swift in Sources */,
+				1115D1391CA38DD200A07A75 /* EmployeeController.swift in Sources */,
 				1115D1371CA3805600A07A75 /* SWXMLHash.swift in Sources */,
 				1115D1351CA3796800A07A75 /* Employee.swift in Sources */,
 				11D78A8B1C9415D80088F837 /* PhotoAndNameViewController.swift in Sources */,

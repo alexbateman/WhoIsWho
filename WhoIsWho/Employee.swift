@@ -10,13 +10,23 @@ import Foundation
 
 class Employee {
     
+    
     static let imageKey = "photoURL"
     static let nameKey = "displayName"
     
     var photoURL = ""
     var displayName = ""
+
     
+    init(jsonDictionary: [String : AnyObject]) {
+        
+        if let photoURL = jsonDictionary[Employee.imageKey] as? String {
+            self.photoURL = photoURL
+        }
+        
+        if let displayName = jsonDictionary[Employee.nameKey] as? String {
+            self.displayName = displayName
+        }
+    }
+
 }
-
-
-
