@@ -8,18 +8,23 @@
 
 import Foundation
 
-func fetchDataFromBamboo (){
+func fetchDataFromBamboo(){
     
-    let session = NSURLSession(configuration: NSURLSessionConfiguration.defaultSessionConfiguration())
+    let url = NSURL(string: "https://api.bamboohr.com/api/gateway.php/abateman/v1/employees/directory")!
     
-    let request = NSURLRequest(URL: NSURL(string: "https://api.bamboohr.com/api/gateway.php/abateman/")!)
+    let config = NSURLSessionConfiguration.defaultSessionConfiguration()
     
-    let task: NSURLSessionDataTask = session.dataTaskWithRequest(request) { (data, response, error) -> Void in
-        if let data = data {
-            let response = NSString(data: data, encoding: NSUTF8StringEncoding)
-            print(response)
-        }
-    }
+    config.HTTPAdditionalHeaders = [
+        "Accept": "application/json",
+        "API Key": "20c02ea9cde0c30f0d15543b80fd99dcaadc8765"
+    ]
     
-    task.resume()
+    let urlSession = NSURLSession(configuration: config)
+    
+    let myQuery = urlSession.dataTaskWithURL(url, completionHandler: {
+        data, response, error -> Void in
+        /* ... */
+    })
+    myQuery.resume()
+
 }
