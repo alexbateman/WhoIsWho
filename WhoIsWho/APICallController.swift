@@ -10,7 +10,7 @@ import Foundation
 
 class APICallController {
     
-    func sendRequest() {
+    func getObjects(endpoint: String, completion: (json: [String: AnyObject]?, error: NSError?) -> Void) {
         /* Configure session, choose between:
          * defaultSessionConfiguration
          * ephemeralSessionConfiguration
@@ -20,14 +20,14 @@ class APICallController {
          */
         let sessionConfig = NSURLSessionConfiguration.defaultSessionConfiguration()
         
-        /* Create session, and optionally set a NSURLSessionDelegate. */
+        // Create session, and optionally set a NSURLSessionDelegate
         let session = NSURLSession(configuration: sessionConfig, delegate: nil, delegateQueue: nil)
         
         /* Create the Request:
          BambooHR JSON (GET https://api.bamboohr.com/api/gateway.php/abateman/v1/employees/directory)
          */
         
-        guard var URL = NSURL(string: "https://api.bamboohr.com/api/gateway.php/abateman/v1/employees/directory") else {return}
+        guard let URL = NSURL(string: endpoint) else { completion(json: nil, error: nil); return }
         let request = NSMutableURLRequest(URL: URL)
         request.HTTPMethod = "GET"
         
@@ -36,20 +36,27 @@ class APICallController {
         request.addValue("Basic MjBjMDJlYTljZGUwYzMwZjBkMTU1NDNiODBmZDk5ZGNhYWRjODc2NToqKioqKiBIaWRkZW4gY3JlZGVudGlhbHMgKioqKio=", forHTTPHeaderField: "Authorization")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         
-        /* Start a new Task */
+        // Start a new Task
         let task = session.dataTaskWithRequest(request, completionHandler: { (data: NSData?, response: NSURLResponse?, error: NSError?) -> Void in
             if (error == nil) {
                 // Success
                 let statusCode = (response as! NSHTTPURLResponse).statusCode
                 print("URL Session Task Succeeded: HTTP \(statusCode)")
+                
+                guard let data = data, json = try? NSJSONSerialization.JSONObjectWithData(data, options: []) as? [String: AnyObject] else { completion(json: nil, error: nil); return }
+                completion(json: json, error: error)
             }
             else {
                 // Failure
                 print("URL Session Task Failed: %@", error!.localizedDescription);
+                completion(json: nil, error: error)
             }
         })
         task.resume()
     }
 }
+
+
+
 
 

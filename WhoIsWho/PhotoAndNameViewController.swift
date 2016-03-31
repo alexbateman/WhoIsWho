@@ -11,8 +11,10 @@ import UIKit
 class PhotoAndNameViewController: UIViewController {
     
 
+    // Click the image and it displays the name
     @IBAction func employeeImageButtonClicked(sender: AnyObject) {
         
+    
     }
     
     @IBOutlet weak var EmployeeName: UILabel!
