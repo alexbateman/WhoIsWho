@@ -11,25 +11,42 @@ import UIKit
 class PhotoAndNameViewController: UIViewController {
     
     var employeeController = EmployeeController()
+    var currentEmployee: Employee? {
+        didSet {
+            guard let currentEmployee = currentEmployee else { return }
+            nameLabel.text = currentEmployee.displayName
+            employeeController.getEmployeeImage(currentEmployee) { (image, error) in
+                if let image = image where error == nil {
+                    self.imageView.image = image
+//                    self.imageButton.setImage(image, forState: .Normal)
+                } else {
+                    print("Error getting employee image: \(error)")
+                }
+            }
+        }
+    }
 
     // Click the image and it displays the name
     // Click again and it displays the next picture without a name
     @IBAction func employeeImageButtonClicked(sender: AnyObject) {
-       
-//        APICallController.getObjects(<#T##APICallController#>)
-//         employeeController.getEmployees { (success, error) in
-//            <#code#>
-//        }
-        
+        currentEmployee = employeeController.nextEmployee()
     }
     
-    @IBOutlet weak var EmployeeName: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var imageButton: UIButton!
+    @IBOutlet weak var imageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        imageButton.imageView?.contentMode = .ScaleAspectFit
+        
         employeeController.getEmployees { (success, error) in
-
+            if success && error == nil {
+                self.currentEmployee = self.employeeController.nextEmployee()
+            } else {
+                print("Error getting employees: \(error)")
+            }
         }
 
         // Do any additional setup after loading the view.

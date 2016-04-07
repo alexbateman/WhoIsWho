@@ -41,21 +41,35 @@ class APICallController {
         
         // Start a new Task
         let task = session.dataTaskWithRequest(request, completionHandler: { (data: NSData?, response: NSURLResponse?, error: NSError?) -> Void in
-            if (error == nil) {
-                // Success
-                let statusCode = (response as! NSHTTPURLResponse).statusCode
-                print("URL Session Task Succeeded: HTTP \(statusCode)")
-                
-                guard let data = data, json = try? NSJSONSerialization.JSONObjectWithData(data, options: []) as? [String: AnyObject] else { completion(json: nil, error: nil); return }
-                completion(json: json, error: error)
-            }
-            else {
-                // Failure
-                print("URL Session Task Failed: %@", error!.localizedDescription);
-                completion(json: nil, error: error)
+            dispatch_async(dispatch_get_main_queue()) {
+                if (error == nil) {
+                    // Success
+                    let statusCode = (response as! NSHTTPURLResponse).statusCode
+                    print("URL Session Task Succeeded: HTTP \(statusCode)")
+                    
+                    guard let data = data, json = try? NSJSONSerialization.JSONObjectWithData(data, options: []) as? [String: AnyObject] else { completion(json: nil, error: nil); return }
+                    completion(json: json, error: error)
+                }
+                else {
+                    // Failure
+                    print("URL Session Task Failed: %@", error!.localizedDescription);
+                    completion(json: nil, error: error)
+                }
             }
         })
         task.resume()
     }
+    
+    func getData(endpoint: String, completion: (data: NSData?, error: NSError?) -> Void) {
+        let session = NSURLSession.sharedSession()
+        guard let url = NSURL(string: endpoint) else { completion(data: nil, error: nil); return }
+        let task = session.dataTaskWithURL(url) { (data, response, error) in
+            dispatch_async(dispatch_get_main_queue()) {
+                completion(data: data, error: error)
+            }
+        }
+        task.resume()
+    }
+    
 }
 

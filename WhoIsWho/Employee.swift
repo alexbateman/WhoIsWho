@@ -30,7 +30,7 @@ class Employee {
         guard let displayName = jsonDictionary[Employee.nameKey] as? String else { return nil }
         self.displayName = displayName
         
-        guard let id = jsonDictionary[Employee.idKey] as? Int else { return nil }
+        guard let idString = jsonDictionary[Employee.idKey] as? String, id = Int(idString) else { return nil }
         self.id = id
     }
     

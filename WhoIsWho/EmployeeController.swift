@@ -6,7 +6,7 @@
 //  Copyright © 2016 Alex Bateman. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class EmployeeController {
     
@@ -47,6 +47,16 @@ class EmployeeController {
         }
         currentIndex += 1
         return employees[index]
+    }
+    
+    func getEmployeeImage(employee: Employee, completion:(image: UIImage?, error: NSError?) -> Void) {
+        apiCallController.getData(employee.photoURLPath) { (data, error) in
+            if let data = data, image = UIImage(data: data) where error == nil {
+                completion(image: image, error: nil)
+            } else {
+                completion(image: nil, error: error)
+            }
+        }
     }
     
 }
