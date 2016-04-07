@@ -10,6 +10,9 @@ import Foundation
 
 class APICallController {
     
+//    private static let API_KEY = "20c02ea9cde0c30f0d15543b80fd99dcaadc8765"
+//    static let baseURL = "https://api.bamboohr.com/api/gateway.php/abateman/v1/employees/directory"
+    
     func getObjects(endpoint: String, completion: (json: [String: AnyObject]?, error: NSError?) -> Void) {
         /* Configure session, choose between:
          * defaultSessionConfiguration
@@ -55,8 +58,4 @@ class APICallController {
         task.resume()
     }
 }
-
-
-
-
 

@@ -23,6 +23,7 @@ class EmployeeController {
         apiCallController.getObjects(endpoint) { (json, error) in
             if let json = json where error == nil {
                 guard let employeesArray = json[EmployeeController.employeesKey] as? [[String: AnyObject]] else { completion(success: false, error: nil); return }
+                // This is supposed to take out all nil entries out of the array. Its not working right now :(
                 let employees = employeesArray.flatMap { Employee(jsonDictionary: $0) }
                 
                 // This will pass anyone without a profile image

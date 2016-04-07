@@ -10,10 +10,14 @@ import Foundation
 
 class Employee {
     
-    static let imageKey = "photoURL"
+    static let imageKey = "photoUrl"
     static let nameKey = "displayName"
     static let idKey = "id"
     
+    // Is the photo path supposed to call to the API for the PhotoURL?
+    // Is the jsonDictionary supposed to call to the API as well?
+    
+    // id is the Employee ID
     var id: Int
     var photoURLPath: String
     var displayName: String
@@ -29,5 +33,5 @@ class Employee {
         guard let id = jsonDictionary[Employee.idKey] as? Int else { return nil }
         self.id = id
     }
-
+    
 }

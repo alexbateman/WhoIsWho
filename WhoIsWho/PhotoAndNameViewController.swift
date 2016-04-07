@@ -10,17 +10,27 @@ import UIKit
 
 class PhotoAndNameViewController: UIViewController {
     
+    var employeeController = EmployeeController()
 
     // Click the image and it displays the name
+    // Click again and it displays the next picture without a name
     @IBAction func employeeImageButtonClicked(sender: AnyObject) {
+       
+//        APICallController.getObjects(<#T##APICallController#>)
+//         employeeController.getEmployees { (success, error) in
+//            <#code#>
+//        }
         
-    
     }
     
     @IBOutlet weak var EmployeeName: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        employeeController.getEmployees { (success, error) in
+
+        }
 
         // Do any additional setup after loading the view.
     }
