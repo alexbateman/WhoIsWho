@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="n9x-io-28K">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="n9x-io-28K">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Welcome View Controller-->
         <scene sceneID="JqE-ES-rnA">
             <objects>
-                <viewController id="n9x-io-28K" sceneMemberID="viewController">
+                <viewController id="n9x-io-28K" customClass="WelcomeViewController" customModule="WhoIsWho" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="90c-Fm-rAV"/>
                         <viewControllerLayoutGuide type="bottom" id="8Tj-wg-cNE"/>
@@ -21,7 +21,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="D0H-Kb-4no">
                                 <rect key="frame" x="20" y="278" width="560" height="252"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="trS-Pr-174">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="trS-Pr-174">
                                         <rect key="frame" x="0.0" y="0.0" width="560" height="252"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="47"/>
                                         <state key="normal" title="Got it!"/>
@@ -31,13 +31,13 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="8p4-Z2-7gr">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="8p4-Z2-7gr">
                                 <rect key="frame" x="20" y="128" width="560" height="90"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Guess the employee name, then tap the picture!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vNR-ct-SQo">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Guess the employee name, then tap the picture!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vNR-ct-SQo">
                                         <rect key="frame" x="0.0" y="0.0" width="560" height="90"/>
                                         <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="39"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -59,10 +59,10 @@
             </objects>
             <point key="canvasLocation" x="-35" y="-34"/>
         </scene>
-        <!--View Controller-->
+        <!--Photo And Name View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="WhoIsWho" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="PhotoAndNameViewController" customModule="WhoIsWho" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -71,16 +71,47 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="fHJ-vC-CqJ">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="fHJ-vC-CqJ">
                                 <rect key="frame" x="133" y="20" width="335" height="309"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0vb-Bn-FVO">
+                                        <rect key="frame" x="0.0" y="0.0" width="335" height="309"/>
+                                        <connections>
+                                            <action selector="employeeImageButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kOm-ni-3jD"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="073-fl-15j">
+                                <rect key="frame" x="133" y="337" width="335" height="28"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xCS-KM-LNL">
+                                        <rect key="frame" x="0.0" y="0.0" width="335" height="28"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="fHJ-vC-CqJ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="0JQ-y8-C6V"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="073-fl-15j" secondAttribute="trailing" constant="112" id="7Dt-q7-gZR"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="fHJ-vC-CqJ" secondAttribute="bottom" constant="271" id="Ber-Q8-g1g"/>
+                            <constraint firstItem="073-fl-15j" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="113" id="aKF-Zp-VVZ"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="073-fl-15j" secondAttribute="bottom" constant="63" id="oRZ-6l-X6s"/>
+                            <constraint firstItem="fHJ-vC-CqJ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="113" id="uW9-N7-Jmw"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="fHJ-vC-CqJ" secondAttribute="trailing" constant="112" id="w0o-Is-uHd"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="EmployeeName" destination="xCS-KM-LNL" id="JyJ-sp-rvO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="695" y="-29"/>
+            <point key="canvasLocation" x="693" y="-29"/>
         </scene>
     </scenes>
 </document>
