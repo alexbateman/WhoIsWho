@@ -23,10 +23,9 @@ class EmployeeController {
         apiCallController.getObjects(endpoint) { (json, error) in
             if let json = json where error == nil {
                 guard let employeesArray = json[EmployeeController.employeesKey] as? [[String: AnyObject]] else { completion(success: false, error: nil); return }
-                // This is supposed to take out all nil entries out of the array. Its not working right now :(
                 let employees = employeesArray.flatMap { Employee(jsonDictionary: $0) }
                 
-                // This will pass anyone without a profile image
+                // This will pass anyone without an image
                 let placeholderPath = "https://abateman.bamboohr.com/images/photo_placeholder.gif"
                 let filteredEmployees = employees.filter { $0.photoURLPath != placeholderPath }
                 self.employees = filteredEmployees
@@ -37,7 +36,7 @@ class EmployeeController {
         }
     }
     
-    // This iterates if there is an employee in the queue. This will be run in the image IBAction.
+    // This iterates if there is an employee in the queue. It then allows the next image once the first has been selected.
     func nextEmployee() -> Employee? {
         guard employees.count > 0 else { return nil }
         let index = currentIndex
@@ -49,6 +48,7 @@ class EmployeeController {
         return employees[index]
     }
     
+    // This code makes the image data readable
     func getEmployeeImage(employee: Employee, completion:(image: UIImage?, error: NSError?) -> Void) {
         apiCallController.getData(employee.photoURLPath) { (data, error) in
             if let data = data, image = UIImage(data: data) where error == nil {

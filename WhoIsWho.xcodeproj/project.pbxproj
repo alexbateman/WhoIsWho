@@ -18,6 +18,7 @@
 		11D78A891C94156F0088F837 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D78A881C94156F0088F837 /* WelcomeViewController.swift */; };
 		11D78A8B1C9415D80088F837 /* PhotoAndNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D78A8A1C9415D80088F837 /* PhotoAndNameViewController.swift */; };
 		11D78A8D1C94184C0088F837 /* APICallController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D78A8C1C94184C0088F837 /* APICallController.swift */; };
+		11FC5A151CBA2B06008C3762 /* AppearanceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11FC5A141CBA2B06008C3762 /* AppearanceController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		11D78A881C94156F0088F837 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		11D78A8A1C9415D80088F837 /* PhotoAndNameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoAndNameViewController.swift; sourceTree = "<group>"; };
 		11D78A8C1C94184C0088F837 /* APICallController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APICallController.swift; sourceTree = "<group>"; };
+		11FC5A141CBA2B06008C3762 /* AppearanceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppearanceController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				11534A481C940B8E001F142D /* AppDelegate.swift */,
+				11FC5A141CBA2B06008C3762 /* AppearanceController.swift */,
 				11D78A8C1C94184C0088F837 /* APICallController.swift */,
 				1115D1341CA3796800A07A75 /* Employee.swift */,
 				1115D1381CA38DD200A07A75 /* EmployeeController.swift */,
@@ -272,6 +275,7 @@
 				11D78A8D1C94184C0088F837 /* APICallController.swift in Sources */,
 				1115D1391CA38DD200A07A75 /* EmployeeController.swift in Sources */,
 				1115D1351CA3796800A07A75 /* Employee.swift in Sources */,
+				11FC5A151CBA2B06008C3762 /* AppearanceController.swift in Sources */,
 				11D78A8B1C9415D80088F837 /* PhotoAndNameViewController.swift in Sources */,
 				11D78A891C94156F0088F837 /* WelcomeViewController.swift in Sources */,
 				11534A491C940B8E001F142D /* AppDelegate.swift in Sources */,

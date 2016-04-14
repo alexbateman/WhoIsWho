@@ -10,7 +10,20 @@ import UIKit
 
 class PhotoAndNameViewController: UIViewController {
     
+    func emptyText() {
+        
+    }
+    
+//    var person: Employee {
+//        didSet {
+//            let image =
+//            // Set name
+//            nameLabel.hidden = true
+//        }
+//    }
+    
     var employeeController = EmployeeController()
+    // Employee contains the image, id, and the name of the employee
     var currentEmployee: Employee? {
         didSet {
             guard let currentEmployee = currentEmployee else { return }
@@ -18,7 +31,6 @@ class PhotoAndNameViewController: UIViewController {
             employeeController.getEmployeeImage(currentEmployee) { (image, error) in
                 if let image = image where error == nil {
                     self.imageView.image = image
-//                    self.imageButton.setImage(image, forState: .Normal)
                 } else {
                     print("Error getting employee image: \(error)")
                 }
@@ -26,9 +38,8 @@ class PhotoAndNameViewController: UIViewController {
         }
     }
 
-    // Click the image and it displays the name
-    // Click again and it displays the next picture without a name
     @IBAction func employeeImageButtonClicked(sender: AnyObject) {
+        
         currentEmployee = employeeController.nextEmployee()
     }
     
@@ -39,6 +50,7 @@ class PhotoAndNameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        AppearanceController.initalizeAppearance()
         imageButton.imageView?.contentMode = .ScaleAspectFit
         
         employeeController.getEmployees { (success, error) in
@@ -56,6 +68,5 @@ class PhotoAndNameViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 
 }
