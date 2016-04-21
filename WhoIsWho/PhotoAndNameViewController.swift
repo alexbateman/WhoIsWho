@@ -14,18 +14,19 @@ class PhotoAndNameViewController: UIViewController {
         
     }
     
-//    var person: Employee {
-//        didSet {
-//            let image =
-//            // Set name
-//            nameLabel.hidden = true
-//        }
-//    }
+    var person: Employee? {
+        didSet {
+            
+            nameLabel.hidden = true
+        }
+    }
     
     var employeeController = EmployeeController()
     // Employee contains the image, id, and the name of the employee
     var currentEmployee: Employee? {
         didSet {
+            nameLabel.hidden = true
+
             guard let currentEmployee = currentEmployee else { return }
             nameLabel.text = currentEmployee.displayName
             employeeController.getEmployeeImage(currentEmployee) { (image, error) in
@@ -40,7 +41,15 @@ class PhotoAndNameViewController: UIViewController {
 
     @IBAction func employeeImageButtonClicked(sender: AnyObject) {
         
-        currentEmployee = employeeController.nextEmployee()
+        if nameLabel.hidden {
+            nameLabel.hidden = false
+
+        } else {
+            currentEmployee = employeeController.nextEmployee()
+
+        }
+        
+//        currentEmployee = employeeController.nextEmployee()
     }
     
     @IBOutlet weak var nameLabel: UILabel!
@@ -49,6 +58,7 @@ class PhotoAndNameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
 //        AppearanceController.initalizeAppearance()
         imageButton.imageView?.contentMode = .ScaleAspectFit

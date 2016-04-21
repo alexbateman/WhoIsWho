@@ -16,7 +16,7 @@ class AppearanceController {
     static func initalizeAppearance() {
         
         //Set colors for entire app.
-        UIView.appearance().backgroundColor = UIColor.grayColor()
+        UIView.appearance().backgroundColor = UIColor.blueColor()
     }
 }
 
