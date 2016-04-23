@@ -50,6 +50,7 @@ class PhotoAndNameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // This makes the background custom gray
         AppearanceController.initalizeAppearance()
         imageButton.imageView?.contentMode = .ScaleAspectFit
         nameLabel.alpha = 0.0
