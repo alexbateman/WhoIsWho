@@ -12,6 +12,7 @@ class WelcomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        AppearanceController.initalizeAppearance()
         
 //        AppearanceController.initalizeAppearance()
         // Do any additional setup after loading the view.

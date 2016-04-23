@@ -16,14 +16,14 @@ class AppearanceController {
     static func initalizeAppearance() {
         
         //Set colors for entire app.
-        UIView.appearance().backgroundColor = UIColor.blueColor()
+        UIView.appearance().backgroundColor = UIColor.defaultViewBackgroundColor()
     }
 }
 
 extension UIColor {
     
     class func defaultViewBackgroundColor() -> UIColor {
-        return UIColor(red:0.419, green:0.487, blue:0.415, alpha:1.000)
+        return UIColor(red:238/255.0, green:238/255.0, blue:238/255.0, alpha:1)
     }
 }
 
