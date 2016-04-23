@@ -9,8 +9,6 @@
 import Foundation
 import UIKit
 
-
-
 class AppearanceController {
     
     static func initalizeAppearance() {

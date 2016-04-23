@@ -10,24 +10,10 @@ import UIKit
 
 class PhotoAndNameViewController: UIViewController {
     
-    
-    func emptyText() {
-        
-    }
-    
-    var person: Employee? {
-        didSet {
-            
-            nameLabel.hidden = true
-        }
-    }
-    
     var employeeController = EmployeeController()
     // Employee contains the image, id, and the name of the employee
     var currentEmployee: Employee? {
         didSet {
-            nameLabel.hidden = true
-            
             // This makes the button transparant
             imageButton.backgroundColor = UIColor.clearColor()
 
@@ -44,11 +30,16 @@ class PhotoAndNameViewController: UIViewController {
     }
 
     @IBAction func employeeImageButtonClicked(sender: AnyObject) {
-        if nameLabel.hidden {
-            nameLabel.hidden = false
-
+        if nameLabel.alpha == 0.0 {
+            UIView.animateWithDuration(0.3, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: [], animations: {
+                self.nameLabel.alpha = 1.0
+                }, completion: nil)
         } else {
-            currentEmployee = employeeController.nextEmployee()
+            UIView.animateWithDuration(0.3, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: [], animations: {
+                self.nameLabel.alpha = 0.0
+            }, completion: { finished in
+                self.currentEmployee = self.employeeController.nextEmployee()
+            })
         }
     }
     
@@ -61,6 +52,7 @@ class PhotoAndNameViewController: UIViewController {
         
         AppearanceController.initalizeAppearance()
         imageButton.imageView?.contentMode = .ScaleAspectFit
+        nameLabel.alpha = 0.0
         
         employeeController.getEmployees { (success, error) in
             if success && error == nil {
