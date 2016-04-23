@@ -27,10 +27,9 @@
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="trS-Pr-174">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="trS-Pr-174">
                                         <rect key="frame" x="0.0" y="26" width="560" height="288"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="43"/>
-                                        <state key="normal" title="Got it!">
+                                        <state key="normal" image="GotIt">
                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
@@ -114,6 +113,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="GotIt" width="201" height="76"/>
         <image name="Screen Shot 2016-03-23 at 10.49.58 PM" width="163" height="26"/>
     </resources>
 </document>
