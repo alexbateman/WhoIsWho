@@ -10,6 +10,7 @@ import UIKit
 
 class PhotoAndNameViewController: UIViewController {
     
+    
     func emptyText() {
         
     }
@@ -26,6 +27,9 @@ class PhotoAndNameViewController: UIViewController {
     var currentEmployee: Employee? {
         didSet {
             nameLabel.hidden = true
+            
+            // This makes the button transparant
+            imageButton.backgroundColor = UIColor.clearColor()
 
             guard let currentEmployee = currentEmployee else { return }
             nameLabel.text = currentEmployee.displayName
@@ -40,16 +44,12 @@ class PhotoAndNameViewController: UIViewController {
     }
 
     @IBAction func employeeImageButtonClicked(sender: AnyObject) {
-        
         if nameLabel.hidden {
             nameLabel.hidden = false
 
         } else {
             currentEmployee = employeeController.nextEmployee()
-
         }
-        
-//        currentEmployee = employeeController.nextEmployee()
     }
     
     @IBOutlet weak var nameLabel: UILabel!
@@ -59,8 +59,7 @@ class PhotoAndNameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-//        AppearanceController.initalizeAppearance()
+        AppearanceController.initalizeAppearance()
         imageButton.imageView?.contentMode = .ScaleAspectFit
         
         employeeController.getEmployees { (success, error) in
